@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shaketail</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header style="display: active;">
+    <nav >
+      <ul>
+        <li><a href="#page1">トップ</a></li>
+        <li><a href="#page2">診断</a></li>
+        <li>検索</li>
+        <li>ヘルプ</li>
+        <li>メニュー</li>
+      </ul>
+  </nav>
+  </header>
+
+  <main>
+    <div id="page1" class="page">
+      <img src="/assets/icons/logo.png" alt="Shaketailのロゴまたはプレースホルダー画像">
+      <h2>ジュースから広がる、カクテルの世界</h2>
+      <button id="shake">シェイクしてみる？</button>
+      <div id="footer">
+        <h2>Shaketail</h2>
+        <p>©Ruka Suzuki/Kyoto University of Arts</p>
+      </div>
+    </div>
+
+    <div id="page2" class="page" style="display: none;">
+      <form class="diagnosis-form">
+        <div class="progress-bar">
+          <div class="progress" style="width: 0%;"></div>
+        </div>
+        <div id="feeling">
+          <label>今日の気分を教えてください（必須）</label>
+          <br>
+          <div class="toggle_button">
+            <button class="choice" value="楽しい！">楽しい！</button>
+            <button class="choice" value="ハッピー！">ハッピー！</button>
+            <button class="choice" value="リラックスしたい">リラックスしたい</button>
+            <button class="choice" value="リフレッシュしたい">リフレッシュしたい</button>
+            <button class="choice" value="ドラマチック">ドラマチック</button>
+            <button class="choice" value="ロマンチック">ロマンチック</button>
+            <button class="choice" value="元気になりたい">元気になりたい</button>
+          </div>
+          <br>
+          <button data-page="page3"><img src="/assets/UI/next_button.png" alt="次へボタン"></button>
+        </div>
+      </form>
+    </div>
+
+    <div id="page3" class="page" style="display: none;">
+      <form class="diagnosis-form">
+        <div class="progress-bar">
+          <div class="progress" style="width: 0%;"></div>
+        </div>
+        <div id="juice">
+          <label>好きなジュースを選んでください（必須）</label>
+          <br>
+            <div class="toggle_button">
+              <button class="choice" value="オレンジジュース">オレンジ</button>
+              <button class="choice" value="グレープフルーツジュース">グレープフルーツ</button>
+              <button class="choice" value="パイナップルジュース">パイナップル</button>
+              <button class="choice" value="ピーチジュース">ピーチ</button>
+              <button class="choice" value="コーラ">コーラ</button>
+              <button class="choice" value="コーヒー">コーヒー</button>
+              <button class="choice" value="ジンジャーエール">ジンジャーエール</button>
+              <button class="choice" value="牛乳">牛乳</button>
+              <button class="choice" value="トマトジュース">トマト</button>
+              <button class="choice" value="ライムジュース">ライム</button>
+              <button class="choice" value="レモンジュース">レモン</button>
+              <button class="choice" value="クランベリージュース">クランベリー</button>
+              <button class="choice" value="炭酸飲料">炭酸飲料</button>
+            </div>
+          <br>
+          <button class="back" data-prev="page2"><img src="/assets/UI/back_button.png" alt="戻るボタン"></button>
+          <button data-page="page4"><img src="/assets/UI/next_button.png" alt="次へボタン"></button>
+        </div>
+      </form>
+    </div>
+
+    <div id="page4" class="page" style="display: none;">
+      <form class="diagnosis-form">
+        <div class="progress-bar">
+          <div class="progress" style="width: 0%;"></div>
+        </div>
+        <div id="taste">
+          <label>好きな味は？（任意）</label>
+          <br>
+            <div class="toggle_button">
+              <button class="choice" value="さっぱり">さっぱり</button>
+              <button class="choice" value="フルーティー">フルーティー</button>
+              <button class="choice" value="ミルキー">ミルキー</button>
+            </div>
+          <br>
+        </div>
+        <div id="color">
+          <label>好きな色は？（任意）</label>
+          <br>
+            <div class="toggle_button">
+              <button class="choice" value="レッド">レッド</button>
+              <button class="choice" value="オレンジ">オレンジ</button>
+              <button class="choice" value="イエロー">イエロー</button>
+              <button class="choice" value="グリーン">グリーン</button>
+              <button class="choice" value="ブルー">ブルー</button>
+              <button class="choice" value="ホワイト">ホワイト</button>
+              <button class="choice" value="ブラウン">ブラウン</button>
+              <button class="choice" value="クリア">クリア</button>
+            </div>
+        </div>
+        <p>スマホを振って診断結果を表示！</p>
+        <button class="back" data-prev="page3"><img src="/assets/UI/back_button.png" alt="戻るボタン"></button>
+        <button id="diagnosis" data-page="page5">こちらをタップ</button>
+      </form>
+    </div>
+    
+    <div id="page5" class="page" style="display: none;">
+      <h1>診断結果</h1>
+      <img id="cocktail-image" src="" alt="カクテル画像" style="width: 100%; max-width: 300px; display: none;">
+      <p id="result-text"></p>
+      <button id="top" data-page="page1">トップに戻る</button>
+    </div>
+  </main>
+
+  <script src="js/main.js" type="module"></script>
+  <script src="js/diagnosis.js" type="module"></script>
+</body>
+</html>
