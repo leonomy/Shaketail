@@ -8,7 +8,7 @@ export const userChoices = {
 
 // データベースと連携
 async function fetchCocktailData() {
-    const response = await fetch('../data/cocktails.json');
+    const response = await fetch('./data/cocktails.json');
     if (!response.ok) {
         throw new Error(`HTTPエラー: ${response.status}`);
     }
