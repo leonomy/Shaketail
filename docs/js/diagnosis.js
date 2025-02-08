@@ -7,13 +7,30 @@ export const userChoices = {
 };
 
 // データベースと連携
-async function fetchCocktailData() {
+/* async function fetchCocktailData() {
     const response = await fetch("./data/cocktails.json");
     if (!response.ok) {
         throw new Error(`HTTPエラー: ${response.status}`);
     }
     return await response.json();
-}
+} */
+
+    async function fetchCocktailData() {
+        const url = "https://script.google.com/macros/s/AKfycbyPhfHKECeJOVXOgcbdPfeIJrYP9jkT2p0qzjWan7Y56m-LydUCMVxGHvsfou3Ddi9u/exec"; // GASのURLに置き換え
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`HTTPエラー: ${response.status}`);
+            }
+            return await response.json();
+        } catch (error) {
+            console.error("データ取得エラー:", error);
+            return [];
+        }
+    }
+    
+    // データ取得を確認
+    fetchCocktailData().then(data => console.log("取得したカクテルデータ:", data));
 
 // 選択データを保存する関数
 export function saveChoice(category, value) {
